@@ -1,0 +1,18 @@
+  libcurl主要功能就是用不同的协议连接和沟通不同的服务器~也就是相当封装了的sockPHP 支持libcurl（允许你用不同的协议连接和沟通不同的服务器）。, libcurl当前支持http, https, ftp, gopher, telnet, dict, file, 和ldap 协议。libcurl同样支持HTTPS证书授权，HTTP POST, HTTP PUT, FTP 上传（当然你也可以使用PHP的ftp扩展）, HTTP基本表单上传，代理，cookies,和用户认证。--百度百科
+
+    编译库，
+
+        到 https://curl.haxx.se/download.html 下载 curl 源码，选择最新版下载。
+
+        打开    Qt 5.7 32-bit for Desktop (MSVC 2013)命令行工具，使用cd,dir将下载的curl-7.58.0设置为当前目录
+
+        "C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\vcvars32.bat" 设置 VS 的环境变量，只会当前 CMD 生效
+
+        nmake /f Makefile.vc mode=dll VC=12 进行编译动态编译
+    导入Qt，将\builds\libcurl-vc12-x86-release-dll-ipv6-sspi-winssl文件夹下的文件复制到curl文件夹下，该文件夹放在Qt工程根目录下，在QT工程文件中增加：
+
+        INCLUDEPATH += ./curl/include  
+        LIBS += -Lcurl/lib -llibcurl</span>  
+————————————————
+版权声明：本文为CSDN博主「文气09」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/xiangbin099/article/details/79393100
